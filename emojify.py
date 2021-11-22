@@ -9,6 +9,7 @@ translator = translate.Translator(from_lang='hu', to_lang='en', provider='libre'
 
 def emojizeWord(s: str) -> str:
     emojis = emoji_search(s).emoji
+    # print(emojis)
     try:
         return emojis[randrange(0, emojis.size)]
     except:
@@ -17,7 +18,7 @@ def emojizeWord(s: str) -> str:
 def emojizeSentence(text: str) -> str:
     emojitext = ""
     for word in text.split():
-        print(word)
+        # print(word)
         emojitext += str(word) + " " + emojizeWord(word) + " "
     return emojitext
 
