@@ -13,8 +13,6 @@ from telegram.ext import Updater, CommandHandler, MessageHandler, Filters, Callb
 import os
 from dotenv import load_dotenv
 
-load_dotenv()
-
 # print('hallo')
 
 # dogs = emoji_search('dog').emoji
@@ -84,4 +82,5 @@ def main() -> None:
 
 
 if __name__ == '__main__':
+    load_dotenv()
     main()
