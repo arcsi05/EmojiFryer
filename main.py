@@ -10,6 +10,11 @@ import logging
 from telegram import Update, ForceReply
 from telegram.ext import Updater, CommandHandler, MessageHandler, Filters, CallbackContext
 
+import os
+from dotenv import load_dotenv
+
+load_dotenv()
+
 # print('hallo')
 
 # dogs = emoji_search('dog').emoji
@@ -57,7 +62,7 @@ def echo(update: Update, context: CallbackContext) -> None:
 def main() -> None:
     """Start the bot."""
     # Create the Updater and pass it your bot's token.
-    updater = Updater("2144270790:AAFFCeus5ogseOVGDrrL3NxzzONv3J7XhFo")
+    updater = Updater(os.getenv('TELEGRAM_TOKEN'))
 
     # Get the dispatcher to register handlers
     dispatcher = updater.dispatcher
