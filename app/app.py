@@ -1,17 +1,16 @@
-from advertools import emoji, emoji_search
-from random import randrange
+import logging
+import os
+# from random import randrange
 
-import advertools
+# import advertools
+# from advertools import emoji, emoji_search
+from dotenv import load_dotenv
+from telegram import ForceReply, Update
+from telegram.ext import (CallbackContext, CommandHandler, Filters,
+                          MessageHandler, Updater)
 
 import emojify
-
-import logging
-
-from telegram import Update, ForceReply
-from telegram.ext import Updater, CommandHandler, MessageHandler, Filters, CallbackContext
-
-import os
-from dotenv import load_dotenv
+from multilang_emoji import Emoji
 
 # print('hallo')
 
@@ -34,9 +33,11 @@ logging.basicConfig(
 
 logger = logging.getLogger(__name__)
 
+hu_emojis = Emoji('hu')
 
 # Define a few command handlers. These usually take the two arguments update and
 # context.
+
 
 def start(update: Update, context: CallbackContext) -> None:
     """Send a message when the command /start is issued."""
@@ -54,7 +55,8 @@ def help_command(update: Update, context: CallbackContext) -> None:
 
 def echo(update: Update, context: CallbackContext) -> None:
     """Echo the user message."""
-    update.message.reply_text(emojify.emojizeSentence(update.message.text))
+    update.message.reply_text(
+        emojify.emojizeSentence(update.message.text, hu_emojis))
 
 
 def main() -> None:
@@ -70,7 +72,8 @@ def main() -> None:
     dispatcher.add_handler(CommandHandler("help", help_command))
 
     # on non command i.e message - echo the message on Telegram
-    dispatcher.add_handler(MessageHandler(Filters.text & ~Filters.command, echo))
+    dispatcher.add_handler(MessageHandler(
+        Filters.text & ~Filters.command, echo))
 
     # Start the Bot
     updater.start_polling()

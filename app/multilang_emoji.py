@@ -1,9 +1,11 @@
 import os
 import pickle
-from typing import List
+import random
 
-from advertools import emoji
+# from advertools import emoji
+
 import emojiscraper
+
 
 class Emoji:
     emojis = {}
@@ -14,10 +16,12 @@ class Emoji:
         with open(os.path.join(os.path.dirname(__file__), 'res', lang + '_emojis.pickle'), 'rb') as handle:
             self.emojis = pickle.load(handle)
 
-
-    def emojiSearch(self,word: str) -> List:
+    def emojiSearch(self, word: str):
         emojilist = []
         for emoji, names in self.emojis.items():
             if word in names:
                 emojilist.append(emoji)
         return emojilist
+
+    def emojiRand(self):
+        return random.choice(list(self.emojis.keys()))

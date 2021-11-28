@@ -1,10 +1,10 @@
-from typing import Dict, List
-from collections import defaultdict
-import requests
-import xml.etree.ElementTree as ET
-import pickle
 import os
-import pathlib
+import pickle
+import xml.etree.ElementTree as ET
+from collections import defaultdict
+from typing import Dict
+
+import requests
 
 
 def downloadEmojiXML(lang) -> str:
