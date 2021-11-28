@@ -4,6 +4,7 @@ from random import randrange
 
 import advertools
 import translate
+from multilang_emoji import Emoji
 
 translator = translate.Translator(from_lang='hu', to_lang='en', provider='libre')
 
@@ -25,3 +26,15 @@ def emojizeSentence(text: str) -> str:
 def internationalEmojizer(text: str) -> str:
     translated_text= translator.translate(text)
     return translated_text
+
+def emojisearch2(s: str):
+    pass
+
+if __name__ == '__main__':
+    hu_emoji = Emoji('hu')
+    # print(hu_emoji.emojis)
+    print(hu_emoji.emojiSearch('macska'))
+    print(hu_emoji.emojiSearch('kutya'))
+    print(hu_emoji.emojiSearch('kéz'))
+    print(hu_emoji.emojiSearch('rakéta'))
+    print(hu_emoji.emojiSearch('kurva'))
