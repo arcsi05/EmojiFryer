@@ -3,14 +3,16 @@ from collections import defaultdict
 import requests
 import xml.etree.ElementTree as ET
 import pickle
+import os
+import pathlib
 
 
 def downloadEmojiXML(lang) -> str:
     url = 'https://raw.githubusercontent.com/unicode-org/cldr/latest/common/annotations/' + lang + '.xml'
     resp = requests.get(url)
-    with open(lang + '_emojis.xml', 'wb') as f:
+    with open(os.path.join(os.path.dirname(__file__), 'res', lang + '_emojis.xml'), 'wb') as f:
         f.write(resp.content)
-        return lang + '_emojis.xml'
+        return f.name
 
 
 def parseEmojiXML(file) -> Dict:
@@ -30,17 +32,24 @@ def parseEmojiXML(file) -> Dict:
 
 
 def saveToFile(emojiDict: Dict, lang: str):
-    with open(lang+'_emojis.pickle', 'wb') as handle:
+    with open(os.path.join(os.path.dirname(__file__), 'res', lang + '_emojis.pickle'), 'wb') as handle:
         pickle.dump(emojiDict, handle)
+
+
+def loadlang(lang):
+    saveToFile(parseEmojiXML(downloadEmojiXML(lang)), lang=lang)
 
 
 def main():
     # downloadEmojiXML()
     lang = 'hu'
-    saveToFile(parseEmojiXML(downloadEmojiXML(lang)), lang=lang)
+    loadlang(lang)
     # print(emojis)
     # parseEmojiXML2('emojis.xml')
 
 
 if __name__ == "__main__":
     main()
+    # print(pathlib.Path(__file__).parent.parent)
+    # print(os.path.join(os.path.dirname(__file__), 'res', 'en_kak'))
+    # print(os.path.join(os.getcwd(), 'res', 'en_kak'))

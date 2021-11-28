@@ -1,12 +1,19 @@
+import os
 import pickle
 from typing import List
+
+from advertools import emoji
+import emojiscraper
 
 class Emoji:
     emojis = {}
 
     def __init__(self, lang) -> None:
-        with open(lang+'_emojis.pickle', 'rb') as handle:
+        if not os.path.isfile(os.path.join(os.path.dirname(__file__), 'res', lang + '_emojis.pickle')):
+            emojiscraper.loadlang(lang)
+        with open(os.path.join(os.path.dirname(__file__), 'res', lang + '_emojis.pickle'), 'rb') as handle:
             self.emojis = pickle.load(handle)
+
 
     def emojiSearch(self,word: str) -> List:
         emojilist = []

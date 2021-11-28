@@ -1,0 +1,1 @@
+This folder is used for the data that's handled by the program

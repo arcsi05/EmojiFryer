@@ -32,9 +32,10 @@ def emojisearch2(s: str):
 
 if __name__ == '__main__':
     hu_emoji = Emoji('hu')
+    ia_emoji = Emoji('ia')
     # print(hu_emoji.emojis)
-    print(hu_emoji.emojiSearch('macska'))
-    print(hu_emoji.emojiSearch('kutya'))
-    print(hu_emoji.emojiSearch('kéz'))
-    print(hu_emoji.emojiSearch('rakéta'))
-    print(hu_emoji.emojiSearch('kurva'))
+    # print(hu_emoji.emojiSearch('macska'))
+    # print(hu_emoji.emojiSearch('kutya'))
+    # print(hu_emoji.emojiSearch('kéz'))
+    # print(hu_emoji.emojiSearch('rakéta'))
+    # print(hu_emoji.emojiSearch('kurva'))
