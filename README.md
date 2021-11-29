@@ -5,6 +5,8 @@ Basic python program that puts emoji in every single whitespace between words.
 
 
 # Available languages:
+Can support all these languages, but for sanity reasons only `en, hu, fr, de` is used for the bot.
+
 Downloaded from here:
 https://github.com/unicode-org/cldr/tree/latest/common/annotations
 ```

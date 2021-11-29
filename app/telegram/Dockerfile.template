@@ -1,0 +1,10 @@
+FROM balenalib/%%BALENA_MACHINE_NAME%%-python:3.9-buster-run
+ 
+WORKDIR /app/telegram
+COPY . /app/telegram
+ 
+RUN /usr/local/bin/python3.9 -m pip install --upgrade pip
+RUN pip install --no-cache-dir --upgrade -r requirements.txt
+ 
+ENTRYPOINT ["python"]
+CMD ["/app/telegram/telegram_bot.py"]

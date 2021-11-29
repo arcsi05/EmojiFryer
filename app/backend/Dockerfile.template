@@ -1,0 +1,10 @@
+FROM balenalib/%%BALENA_MACHINE_NAME%%-python:3.9-buster-run
+ 
+WORKDIR /app/backend
+COPY . /app/backend
+ 
+RUN /usr/local/bin/python3.9 -m pip install --upgrade pip
+RUN pip install --no-cache-dir --upgrade -r requirements.txt
+ 
+# ENTRYPOINT ["/usr/local/lib/python3.9/site-packages/uvicorn"]
+CMD ["uvicorn", "api_main:app", "--host", "0.0.0.0", "--port", "80"]

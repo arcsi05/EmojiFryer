@@ -1,6 +1,17 @@
-version: "3.7"
+version: "2"
  
 services:
-  emojifyer_bot:
-    build:
-      context: ./
+  emojifyer_backend:
+    build: ./app/backend
+      # context: ./app/backend
+    # restart: on-failure
+    ports:
+      - 80:80
+  telegram_bot:
+    build: ./app/telegram
+      # context: ./app/telegram
+    # restart: on-failure
+
+networks:
+  default:
+    driver: custom-network-1

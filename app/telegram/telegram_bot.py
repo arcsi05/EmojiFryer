@@ -8,9 +8,9 @@ from dotenv import load_dotenv
 from telegram import ForceReply, Update
 from telegram.ext import (CallbackContext, CommandHandler, Filters,
                           MessageHandler, Updater)
-
-import emojify
-from multilang_emoji import Emoji
+import requests
+# import emojify
+# from multilang_emoji import Emoji
 
 # print('hallo')
 
@@ -33,11 +33,10 @@ logging.basicConfig(
 
 logger = logging.getLogger(__name__)
 
-hu_emojis = Emoji('hu')
+# hu_emojis = Emoji('hu')
 
 # Define a few command handlers. These usually take the two arguments update and
 # context.
-
 
 def start(update: Update, context: CallbackContext) -> None:
     """Send a message when the command /start is issued."""
@@ -55,8 +54,10 @@ def help_command(update: Update, context: CallbackContext) -> None:
 
 def echo(update: Update, context: CallbackContext) -> None:
     """Echo the user message."""
-    update.message.reply_text(
-        emojify.emojizeSentence(update.message.text, hu_emojis))
+    update.message.reply_text(requests.get('http://localhost:80/emojify?sentence='+update.message.text).text.strip('"'))
+
+    # update.message.reply_text(
+    #     emojify.emojizeSentence(update.message.text, hu_emojis))
 
 
 def main() -> None:

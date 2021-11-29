@@ -8,9 +8,11 @@ import emojiscraper
 
 
 class Emoji:
+    lang = ''
     emojis = {}
 
     def __init__(self, lang) -> None:
+        self.lang = lang
         if not os.path.isfile(os.path.join(os.path.dirname(__file__), 'res', lang + '_emojis.pickle')):
             emojiscraper.loadlang(lang)
         with open(os.path.join(os.path.dirname(__file__), 'res', lang + '_emojis.pickle'), 'rb') as handle:

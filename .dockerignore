@@ -130,3 +130,6 @@ dmypy.json
 
 /app/backend/res/*.pickle
 /app/backend/res/*.xml
+.git
+.cache
+*.md
