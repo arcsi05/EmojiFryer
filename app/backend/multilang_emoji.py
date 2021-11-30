@@ -2,8 +2,6 @@ import os
 import pickle
 import random
 
-# from advertools import emoji
-
 import emojiscraper
 
 
