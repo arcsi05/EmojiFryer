@@ -1,4 +1,4 @@
-# OverEmojifier
+# EmojiFryer
 Basic python program that puts emoji in every single whitespace between words.
 # To-Do
 - [ ] Fix weird whitespacing when no emojis are retruned
