@@ -63,7 +63,7 @@ def about_command(update: Update, context: CallbackContext) -> None:
 def echo(update: Update, context: CallbackContext) -> None:
     """Echo the user message."""
     update.message.reply_text(requests.get(
-        'http://localhost:80/emojify?sentence='+update.message.text).text.strip('"'))
+        'http://localhost:4356/emojify?sentence='+update.message.text).text.strip('"'))
 
     # update.message.reply_text(
     #     emojify.emojizeSentence(update.message.text, hu_emojis))

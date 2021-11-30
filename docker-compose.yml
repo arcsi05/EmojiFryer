@@ -3,15 +3,27 @@ version: "2"
 services:
   emojifyer_backend:
     build: ./app/backend
-    network_mode: host # context: ./app/backend
-    # restart: on-failure
+    network_mode: host
+    restart: on-failure
+    # networks:
+    #   - backend
     ports:
-      - 80:80
+      - 4356:4356
   telegram_bot:
     build: ./app/telegram
-    network_mode: host # context: ./app/telegram
-    # restart: on-failure
-
     # networks:
-    #   default:
-    #     driver: custom-network-1
+    #   - backend
+    #   - frontend
+    network_mode: host
+    restart: on-failure
+  messenger_bot:
+    build: ./app/messenger
+    network_mode: host
+    ports:
+      - 80:80
+
+# networks:
+#   backend:
+#     driver: bridge
+#   frontend:
+#     driver: host

@@ -1,6 +1,4 @@
-from typing import Optional
 import emojify
-from multilang_emoji import Emoji
 from fastapi import FastAPI
 from starlette.responses import RedirectResponse
 
