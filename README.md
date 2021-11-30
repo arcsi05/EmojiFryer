@@ -1,8 +1,7 @@
 # OverEmojifier
 Basic python program that puts emoji in every single whitespace between words.
 # To-Do
-- [ ] Fix README
-
+- [ ] Fix weird whitespacing when no emojis are retruned
 
 # Available languages:
 Can support all these languages, but for sanity reasons only `en, hu, fr, de` is used for the bot.
