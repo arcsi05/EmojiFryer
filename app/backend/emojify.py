@@ -24,7 +24,7 @@ def emojizeSentence(text: str) -> str:
         emojis = emojizer.emoji_dict['en']
     for word in text.split():
         # print(word)
-        emojitext += str(word) + " " + emojizeWord(word, emojis) + " "
+        emojitext += str(word) + " " + emojizeWord(word, emojis)
     return emojitext
 
 
@@ -33,11 +33,11 @@ def emojizeWord(text: str, emojis: Emoji) -> str:
         return ''
     try:
         if len(text) > 2:
-            return random.choice(emojis.emojiSearch(text.lower()))
+            return random.choice(emojis.emojiSearch(text.lower())) + ' '
         else:
             raise Exception()
     except:
-        return emojis.emojiRand()
+        return emojis.emojiRand() + ' '
 
 
 emojizer = Emojize()
