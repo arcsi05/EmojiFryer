@@ -19,6 +19,10 @@ app = FastAPI()
 # async def docs_redirect():
 #     return RedirectResponse(url='/docs')
 
+@app.get("/emojize_api")
+async def docs_redirect(sentence: Optional[str] = Query(None, alias="sentence")):
+    return requests.get('http://localhost:4356/emojify?sentence='+sentence).text.strip('"')
+
 # Logging toolbox 🔊
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger("webhook")

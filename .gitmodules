@@ -1,0 +1,3 @@
+[submodule "balena-sound"]
+	path = balena-sound
+	url = https://github.com/balenalabs/balena-sound.git

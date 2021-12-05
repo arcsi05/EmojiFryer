@@ -133,3 +133,7 @@ dmypy.json
 .git
 .cache
 *.md
+
+docs
+images
+.github
