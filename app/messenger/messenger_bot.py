@@ -64,8 +64,8 @@ async def trigger_response(request: Request) -> None:
         .replace("<", "\\u003C")
         .encode()
     )
-    print("data:")
-    print(json.dumps(data, indent=4))
+    # print("data:")
+    # print(json.dumps(data, indent=4))
     app_secret = getenv("FB_APP_SECRET").encode()
     expected_signature = hmac.new(
         app_secret, payload, digestmod=hashlib.sha1

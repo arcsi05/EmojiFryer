@@ -4,6 +4,7 @@ volumes:
   spotifycache:
 
 services:
+  
   emojifyer_backend:
     build: ./app/backend
     network_mode: host
@@ -22,6 +23,16 @@ services:
     ports:
       - 80:80
 
+  datadog:
+    build: ./datadog
+    privileged: true
+    restart: always
+    pid: "host"
+    network_mode: "host"
+    labels:
+      io.resin.features.dbus: '1'
+      io.resin.features.balena-socket: '1'
+
 
   # Services listed below this line are for the Balena-Sound installation.
   # If you want to only use the 
@@ -36,8 +47,9 @@ services:
 
   sound-supervisor:
     build: 
+    # build: ./balena-sound/core/sound-supervisor
       context: ./balena-sound
-      dockerfile: ./balena-sound/core/sound-supervisor/Dockerfile.template
+      dockerfile: ./core/sound-supervisor/Dockerfile.template
     network_mode: host
     labels:
       io.balena.features.balena-api: '1'
@@ -71,14 +83,14 @@ services:
 
   # -- Remove unwanted plugins as needed
   upnp:
-    build: .balena-sound/plugins/upnp
+    build: ./balena-sound/plugins/upnp
     restart: on-failure
     network_mode: host
     ports:
       - 49494:49494
 
   airplay:
-    build: .balena-sound/plugins/airplay
+    build: ./balena-sound/plugins/airplay
     restart: on-failure
     network_mode: host
     privileged: true
@@ -86,7 +98,7 @@ services:
       io.balena.features.dbus: 1
 
   spotify:
-    build: .balena-sound/plugins/spotify
+    build: ./balena-sound/plugins/spotify
     restart: on-failure
     privileged: true
     network_mode: host
