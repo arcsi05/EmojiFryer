@@ -1,8 +1,13 @@
 # EmojiFryer
 Basic python program that puts emoji in every single whitespace between words.
-# To-Do
-- [ ] Stuff ???
-- [ ] Make boit available on facebook
+
+# Availability:
+Bot is available on FB Messenger and Telegram.
+
+[Messenger](m.me/EmojiFryer)
+
+[Telegram](t.me/emojifyer_bot)
+
 
 # Available languages:
 Can support all these languages, but for sanity reasons only `en, hu, fr, de` is used for the bot.
