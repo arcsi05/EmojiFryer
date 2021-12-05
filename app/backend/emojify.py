@@ -21,7 +21,7 @@ def emojizeSentence(text: str) -> str:
         # print('Using langugage:', emojis.lang)
         text = ''.join(text.splitlines(keepends=True)[1:])
     else:
-        emojis = emojizer.emoji_dict['en']
+        emojis = emojizer.emoji_dict['hu']
     for word in text.split():
         # print(word)
         emojitext += str(word) + " " + emojizeWord(word, emojis)
