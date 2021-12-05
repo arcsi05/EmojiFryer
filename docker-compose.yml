@@ -4,7 +4,7 @@ volumes:
   spotifycache:
 
 services:
-  
+
   emojifyer_backend:
     build: ./app/backend
     network_mode: host
@@ -23,15 +23,15 @@ services:
     ports:
       - 80:80
 
-  datadog:
-    build: ./datadog
-    privileged: true
-    restart: always
-    pid: "host"
-    network_mode: "host"
-    labels:
-      io.resin.features.dbus: '1'
-      io.resin.features.balena-socket: '1'
+  # datadog:
+  #   build: ./datadog
+  #   privileged: true
+  #   restart: always
+  #   pid: "host"
+  #   network_mode: "host"
+  #   labels:
+  #     io.resin.features.dbus: '1'
+  #     io.resin.features.balena-socket: '1'
 
 
   # Services listed below this line are for the Balena-Sound installation.

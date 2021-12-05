@@ -18,7 +18,8 @@ RUN pip3 install -r requirements.txt
 ENV GOPATH=/usr/app
 ENV PATH=$PATH:/usr/app/bin
 
-RUN git clone --branch 7.25.1 --depth 1 https://github.com/DataDog/datadog-agent.git /usr/app/src/github.com/DataDog/datadog-agent
+# RUN git clone --branch 7.25.1 --depth 1 https://github.com/DataDog/datadog-agent.git /usr/app/src/github.com/DataDog/datadog-agent
+RUN git clone https://github.com/DataDog/datadog-agent.git /usr/app/src/github.com/DataDog/datadog-agent
 
 WORKDIR /usr/app/src/github.com/DataDog/datadog-agent
 
