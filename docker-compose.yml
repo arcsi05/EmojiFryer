@@ -58,6 +58,10 @@ services:
       io.balena.features.balena-api: '1'
       io.balena.features.supervisor-api: 1
 
+  qBitTorrent:
+    build: ./qbitorrent
+    network_mode: host
+
   # multiroom-server:
   #   build: .balena-sound/core/multiroom/server
   #   restart: on-failure
