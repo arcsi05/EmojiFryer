@@ -110,15 +110,6 @@ services:
     network_mode: host
     volumes:
       - spotifycache:/var/cache/raspotify
-  
-  bluetooth:
-    build: ./balena-sound/plugins/bluetooth
-    restart: on-failure
-    network_mode: host
-    cap_add:
-      - NET_ADMIN
-    labels:
-      io.balena.features.dbus: 1
 
   hostname:
     build: ./balena-sound/core/hostname
